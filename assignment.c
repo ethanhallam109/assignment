@@ -4,19 +4,60 @@ int main()
 {
     int c;
     char str[26];
-    int x, key = 3;
+    int key=1;
+    int x;
     
-    printf("\nEnter a message to encrypt:\n ");
-    scanf("%s", str);
-    // scanf("%[^\n]s", str);
-    
-    for( c = 0 ; (c<40 && str[c] != '\0') ; c++)
-        str[c] = str[c] + 3 ;
+    printf("choose an option:\n 1. Encrypt a message\n 2. Decrypt a message\n");
+    scanf("%d", &x);
+    // switch(x)
+    {
+    // case 1:
+    if(x==1)
+    {
+        printf("\nEnter a message to encrypt:\n ");
+        scanf(" %[^\n]s", str);
         
+        for( c = 0 ; (c<40 && str[c] != '\0') ; c++)
+        {
+            if(str[c]=='Z' || str[c]=='z')//coverts z to a
+        {
+            str[c]=64;
+        }
+            if(str[c]<=122 && str[c]>=97)//changes case
+        {
+            str[c]=str[c]-32;
+        }
+        str[c] = (str[c] + key);
+        }
     printf("\n encrypted message:%s\n ", str);
-        
-	
-  return 0;  
+    // break;
+    return 0;
+    }
+    
+    // case 2:
+    if(x==2)
+    {
+            printf("\nEnter a message to decrypt:\n ");
+            scanf(" %[^\n]s", str);
+            
+        for( c = 0 ; (c<40 && str[c] != '\0') ; c++)
+        {
+                if(str[c]=='A' || str[c]=='a')
+            {
+                str[c]=91;
+            }
+            if(str[c]<=122 && str[c]>=97)
+            {
+                str[c]=str[c]-32;
+            }
+        str[c] = (str[c] - key);
+        }
+        printf("\n encrypted message:%s\n ", str);
+	   // break;
+	return 0;
+    }
+    }
+    // return 0;
 }
 
 
@@ -37,75 +78,3 @@ int main()
 
 
 
-
-
-
-
-
-
-
-
-//#include<stdio.h>
-//
-//int main()
-//{
-//    int c;
-//    char str[26];
-//    int x, key = 3;
-//    
-//    printf("Enter a message to encrypt:\n ");
-//    scanf("%s", &str);
-//    
-//    for( c = 0 ; (c<40 && str[c] ! = '\0') ; c++)
-//        str[c] = str[c] + key
-//        
-//    printf("encrypted message:%s\n ", str[c]);
-//        
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//    
-//  return 0;  
-//}
-////int main()
-////{
-////	char message[100], ch;
-////	int i, key;
-////	
-////	printf("Enter a message to encrypt: ");
-////	Scanf(“%[^\n]s”,str);
-////	printf("Enter key: ");
-////	scanf("%d", &key);
-////	
-////	for(i = 0; message[i] != '\0'; ++i){
-////		ch = message[i];
-////		
-////		if(ch >= 'a' && ch <= 'z'){
-////			ch = ch + key;
-////			
-////			if(ch > 'z'){
-////				ch = ch - 'z' + 'a' - 1;
-////			}
-////			
-////			message[i] = ch;
-////		}
-////		else if(ch >= 'A' && ch <= 'Z'){
-////			ch = ch + key;
-////			
-////			if(ch > 'Z'){
-////				ch = ch - 'Z' + 'A' - 1;
-////			}
-////			
-////			message[i] = ch;
-////		}
-////	}
-////	
-////	printf("Encrypted message: %s", message);
-////	
-////	return 0;
-////}
