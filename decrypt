@@ -1,0 +1,33 @@
+#include<stdio.h>
+
+int main()
+{
+    int c;
+    char str[26];
+    int key=1;
+    
+    
+    printf("\nEnter a message to decrypt:\n ");
+    // scanf("%6d", str);
+    scanf("%[^\n]s", str);
+    
+    for( c = 0 ; (c<40 && str[c] != '\0') ; c++)
+    // for( c = 0 ; (c<40 && str[c] != '\0') ; c++, key=key+3) 
+    {
+        if(str[c]=='A' || str[c]=='a')
+        {
+            str[c]=91;
+        }
+        if(str[c]<=122 && str[c]>=97)
+        {
+            str[c]=str[c]-32;
+        }
+        // if(str[c]=32)
+        // {
+        //   str[c]=str[c]+63;  
+        // }
+        str[c] = (str[c] - key);
+    }
+        printf("\n encrypted message:%s\n ", str);
+	    return 0;
+}
