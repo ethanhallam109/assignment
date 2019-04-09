@@ -11,7 +11,6 @@ int main()
     switch(x)
     {
     case 1:
-    // if(x==1)
     {
         printf("\nEnter a message to encrypt:\n ");
         scanf(" %[^\n]s", str);
@@ -30,11 +29,9 @@ int main()
         }
     printf("\n encrypted message:%s\n ", str);
     break;
-    // return 0;
     }
     
     case 2:
-    // if(x==2)
     {
             printf("\nEnter a message to decrypt:\n ");
             scanf(" %[^\n]s", str);
@@ -53,7 +50,6 @@ int main()
         }
         printf("\n encrypted message:%s\n ", str);
 	    break;
-// 	return 0;
     }
     default:
     {
