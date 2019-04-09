@@ -6,13 +6,12 @@ int main()
     char str[26];
     int key=1;
     int x;
-    
     printf("choose an option:\n 1. Encrypt a message\n 2. Decrypt a message\n");
     scanf("%d", &x);
-    // switch(x)
+    switch(x)
     {
-    // case 1:
-    if(x==1)
+    case 1:
+    // if(x==1)
     {
         printf("\nEnter a message to encrypt:\n ");
         scanf(" %[^\n]s", str);
@@ -30,12 +29,12 @@ int main()
         str[c] = (str[c] + key);
         }
     printf("\n encrypted message:%s\n ", str);
-    // break;
-    return 0;
+    break;
+    // return 0;
     }
     
-    // case 2:
-    if(x==2)
+    case 2:
+    // if(x==2)
     {
             printf("\nEnter a message to decrypt:\n ");
             scanf(" %[^\n]s", str);
@@ -53,28 +52,14 @@ int main()
         str[c] = (str[c] - key);
         }
         printf("\n encrypted message:%s\n ", str);
-	   // break;
-	return 0;
+	    break;
+// 	return 0;
+    }
+    default:
+    {
+        printf("Please restart the program and choose a correct option\n");
+        break;
     }
     }
-    // return 0;
+    return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
