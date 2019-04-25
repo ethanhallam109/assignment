@@ -1,46 +1,29 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int main(){    //initialisation of variables and arrays
-	char text[500];
-	const char sub[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
-	const char alph[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	int n, i;
-	
-	printf("Enter message: ");//prompts the user to imput a message
-	scanf(" %[^\n]s", text);//stores the text imputted by the user in the array "text"
+int main()
+{
+	char key[27] = {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','\0'};//key for encryption
+	char str[50]; 
+	printf("message to encrypt:");
+	scanf("%[^'\n']s", str); //stores message
+	int i = 97, k;
+	for (int n=0; str[n] != 0; n++)
+	{
+		for (i; i < 123; i++) 
+		{
+			k = i-97;
 
-    
-    for(n=0; text[n]!='\0'; n++){/*This for loop executes for all characters in the array "text" until the chracter occupying index i is a "NULL" character*/
-  
-	    
-     	if(text[n] >= 'a' && text[n] <= 'z'){//turns lowercase letters in the array "text" into UPPERCASE by subtracting 32
-		    text[n] = text[n] - 32;
-     	}
-     
-        //prints the character at index "n" to the screen if it is not a letter
-        if(text[n] < 'A' || text[n] > 'Z'){
-                printf("%c", text[n]);
+        if(str[n]<=122 && str[n]>=97)//converts to uppercase
+        {
+            str[n]=str[n]-32;
         }
-        
-        /* This loop tests if the character at index "n" is equal to any of the letters in the array "substitution" 
-        (index 0 to index 25), and if true, the character is substituted with the corresponding chracter in the 
-        array "ALPHABET" */
-        for(i=0; i<26; i++){
-            
-            /* This "if" statement turns lowercase letters in the array "substitution" into UPPERCASE by subtracting
-            32 before the substitution is done */
-            if(sub[i] >= 'a' && sub[i] <= 'z'){
-		        sub[i] = sub[i] - 32;
-	        }
-             
-            /* This "if" statement tests if the charater in "text" at index "n" is equal to any character in 
-            "substitution" by running through all possible indices "i". If true, the character at the same index "i" of 
-            "ALPHABET" is printed to the screen */
-            if (text[n] == sub[i]){
-                printf("%c", alph[i]);
-            }
-        }
-    }
-    return 0;
+		else if (str[n] == i)
+		{
+			str[n] = key[i-97];
+			break;
+		}
+		}
+	}
+	printf("encrypted message: %s\n", str);//prints encrypted message
+	return 0;
 }
