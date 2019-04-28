@@ -34,7 +34,7 @@ int main()
             {
                 str[c]=str[c]-32;
             }
-            str[c] = (str[c] + a);
+            str[c] = (str[c] + key);
             }
         printf("\n encrypted message:%s\n ", str);
         break;
@@ -100,14 +100,54 @@ int main()
         }
     }
         printf("\nyour encrypted message is:\n %s",m3);
-        return 0;
-        
+        break;
         }
+        case 4:
+        {
+            char upcase[30]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+            char lowcase[30]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+            
+            char key[30];
+            char m4[1500];
+                                      
+            printf("\nEnter message to decrypt: ");
+            scanf(" %[^\n]",m4);
+            
+            int n;
+            int i;
+            
+            printf("\nEnter key/26 characters: ");
+            scanf("%s",key);
+                                      
+            for(n=0;n<strlen(m4);n++) {
+                                        
+                for(i=0;i<26;i++) 
+                {
+                                            
+                    if(m4[n]==key[i])
+                    {
+                        m4[n]=upcase[i];
+                        break;
+                    }
+                    if(m4[n]==key[i]) 
+                    {
+                        m4[n]=lowcase[i];
+                        break;
+                    }
+                    else {
+                    
+                    m4[n]=m4[n];
+                    }
+                }
+            }
+                printf("\nDecrypted message: %s",m4);
+                return 0;
+                }
         default:
         {
             printf("Please restart the program and choose a correct option\n");
             break;
         }
-    }
+            }
     return 0;
 }
