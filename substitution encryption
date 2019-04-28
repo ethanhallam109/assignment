@@ -1,29 +1,40 @@
 #include <stdio.h>
+#include <string.h>
 
-int main()
+int main ()
 {
-	char key[27] = {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','\0'};//key for encryption
-	char str[50]; 
-	printf("message to encrypt:");
-	scanf("%[^'\n']s", str); //stores message
-	int i = 97, k;
-	for (int n=0; str[n] != 0; n++)
-	{
-		for (i; i < 123; i++) 
-		{
-			k = i-97;
+    
+    char lowcase[30]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    char upcase[30]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+   
+    char key[27], mX[1000];
+ 
+    printf("\nenter the message to encrypt: ");
+    scanf(" %[^\n]",m3);
 
-        if(str[n]<=122 && str[n]>=97)//converts to uppercase
-        {
-            str[n]=str[n]-32;
+    int n;
+    int i;
+
+    printf("\nEnter key of 26 characters: ");
+    scanf("%s",key);
+    
+    for(n=0;n<strlen(m3);n++) {
+                               
+        for(i=0;i<26;i++) {
+                                    
+            if(uppercase[i]==m3[n]) 
+            { 
+             
+                m3[n]=key[i];
+                break;
+            }
+            if(lowercase[i]==m3[n]) 
+            {
+                m3[n]=key[i];
+                break;
+            }
         }
-		else if (str[n] == i)
-		{
-			str[n] = key[i-97];
-			break;
-		}
-		}
-	}
-	printf("encrypted message: %s\n", str);//prints encrypted message
-	return 0;
+    }
+    printf("\nyour encrypted message is:\n %s",mX);
+    return 0;
 }
