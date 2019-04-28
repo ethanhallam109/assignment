@@ -1,33 +1,42 @@
 #include <stdio.h>
+#include <string.h>
 
-int main()
-{
-	char key[27] = {'q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','\0'};
-	char str[50];
-	printf("message to decrypt:");
-	scanf("%[^'\n']s", str);
-	
-	for (int n=0; str[n] != '\0'; n++)
-	{
-		for (int k=0; key[k] != '\0'; k++)
-		{
-			if (str[n] == 32)
-			{
-				str[n]=str[n];
-			}
-			else if (str[n] == key[k])
-			{
-				str[n] = k + 97;
-				if (str[n]<=129 && str[n]>=92)         //changes case
-                {
-                    str[n]=str[n]-32;
-                }
-			}
-            
-            
-		}
-	}
-	printf("Decrypted message:");
-	printf("%s\n", str);
-	return 0;
+int main () {
+    
+    char upcase[30]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    char lowcase[30]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    
+    char key[30], m4[1500];
+
+    printf("\nEnter message to decrypt: ");
+    scanf(" %[^\n]",m4);
+    
+    int n;
+    int i;
+    
+    printf("\nEnter key/26 characters: ");
+    scanf("%s",key);
+
+    for(n=0;n<strlen(m4);n++) 
+    {
+        for(i=0;i<26;i++) 
+        {
+            if(m4[n]==key[i]) 
+            {
+                m4[n]=upcase[i];
+                break;
+            }
+            if(m4[n]==key[i]) 
+            {
+                m4[n]=lowcase[i];
+                break;
+            }
+            else 
+            {
+                m4[n] = m4[n];
+            }
+        }
+    }
+    printf("\nDecrypted message: %s",m4);
+    return 0;
 }
