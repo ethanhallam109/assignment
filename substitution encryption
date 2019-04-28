@@ -22,13 +22,13 @@ int main ()
                                
         for(i=0;i<26;i++) {
                                     
-            if(uppercase[i]==m3[n]) 
+            if(upcase[i]==m3[n]) 
             { 
              
                 m3[n]=key[i];
                 break;
             }
-            if(lowercase[i]==m3[n]) 
+            if(lowcase[i]==m3[n]) 
             {
                 m3[n]=key[i];
                 break;
