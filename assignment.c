@@ -1,40 +1,41 @@
+/*all testing was completed on onlineGBD due to limited knowlege on how to use and work che eclipse as i was unable to*/
+
+
 #include<stdio.h>
 #include <string.h>
 
 
 int main()
 {
-    // int c;
-    // char str[26];
-    // int key=1;
     int x;
     printf("choose an option number:\n 1. Encrypt a message using rotation cypher\n 2. Decrypt a message using rotation cypher\n 3. Encrypt a message using substitution cypher\n 4. Decrypt a message using substitution cypher\n");
     scanf("%d", &x);
     
-        switch(x)
+        switch(x)//switch statment allows the user to choose from the 4 options
         {
         case 1:
         {
+            /*initiates all variables within the switch set not affecting any other switch sets*/
             int c;
             char str[26];
             int key;
             
             printf("\nEnter a message to encrypt:\n ");
-            scanf(" %[^\n]s", str);
+            scanf(" %[^\n]s", str); //stores the message to encrypt
             printf("\nEnter the key:\n ");
-            scanf("%d",&key);
+            scanf("%d",&key);//allows the user to chose a key for the rotation encryption
             
-            for( c = 0 ; (c<40 && str[c] != '\0') ; c++)
+            for( c = 0 ; (c<40 && str[c] != '\0') ; c++)//initiates loop for the 
             {
-                if(str[c]=='Z' || str[c]=='z')//coverts z to a
-            {
-                str[c]=64;
-            }
-                if(str[c]<=122 && str[c]>=97)//changes case
-            {
-                str[c]=str[c]-32;
-            }
-            str[c] = (str[c] + key);
+                if(str[c]=='Z' || str[c]=='z')//coverts z to a when rotating through stopping the text to be coverted to symbols
+                {
+                    str[c]=64;
+                }
+                if(str[c]<=122 && str[c]>=97)//changes case, this will change the case of the message to uppercase
+                {
+                    str[c]=str[c]-32;
+                }
+                str[c] = (str[c] + key);//applys the key to the message, encryting the message
             }
         printf("\n encrypted message:%s\n ", str);
         break;
@@ -42,6 +43,7 @@ int main()
         
         case 2:
         {
+            /*initiates all variables within the switch set not affecting any other switch sets*/
             int c;
             char str[26];
             int key;
@@ -53,15 +55,15 @@ int main()
                 
             for( c = 0 ; (c<40 && str[c] != '\0') ; c++)
             {
-                    if(str[c]=='A' || str[c]=='a')
+                    if(str[c]=='A' || str[c]=='a')//coverts z to a when rotating through stopping the text to be coverted to symbols
                 {
                     str[c]=91;
                 }
-                if(str[c]<=122 && str[c]>=97)
+                if(str[c]<=122 && str[c]>=97)//changes case, this will change the case of the message to uppercase
                 {
                     str[c]=str[c]-32;
                 }
-            str[c] = (str[c] - key);
+            str[c] = (str[c] - key);//applys the key to the code and decrypts the encryption 
             }
             printf("\n encrypted message:%s\n ", str);
     	    break;
