@@ -14,7 +14,7 @@ int main()
     
         switch(x)//switch statment allows the user to choose from the 4 options
         {
-        case 1:
+        case 1:     //encrytion using rotation cypher
         {
             /*initiates all variables within the switch set not affecting any other switch sets*/
             int c;
@@ -38,11 +38,11 @@ int main()
                 }
                 str[c] = (str[c] + key);//applys the key to the message, encryting the message
             }
-        printf("\n encrypted message:%s\n ", str);
+        printf("\n encrypted message:%s\n ", str);//prints the encrypted message
         break;
         }
         
-        case 2:
+        case 2:     //decrytion using rotation cypher
         {
             /*initiates all variables within the switch set not affecting any other switch sets*/
             int c;
@@ -50,9 +50,9 @@ int main()
             int key;
             
             printf("\nEnter a message to decrypt:\n ");
-            scanf(" %[^\n]s", str);
+            scanf(" %[^\n]s", str);//stores the message to be decrypted
             printf("\nEnter the key:\n ");
-            scanf("%d",&key);
+            scanf("%d",&key);//allows the user to chose a key for the rotation encryption
                 
             for( c = 0 ; (c<40 && str[c] != '\0') ; c++)//begins loop for decryption
             {
@@ -66,10 +66,10 @@ int main()
                 }
             str[c] = (str[c] - key);//applys the key to the code and decrypts the encryption 
             }
-            printf("\n encrypted message:%s\n ", str);
+            printf("\n decrypted message:%s\n ", str);//prints the decrypted message
     	    break;
             }
-        case 3:
+        case 3:     //encrytion using substitution cypher
         {
             /*intitiate the strings to store the message and key allowing for the program to encrypt the message*/
             char lowcase[30]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
@@ -78,13 +78,13 @@ int main()
         char key[27], m3[1000];
  
     printf("\nenter the message to encrypt: ");
-    scanf(" %[^\n]",m3);
+    scanf(" %[^\n]",m3);//stores the message to be encrypted
 
     int n;
     int i;
 
     printf("\nEnter key of 26 characters: ");
-    scanf("%s",key);
+    scanf("%s",key);//allows the user to chose a key for the substitution encryption
     
     for(n=0;n<strlen(m3);n++) //i is initialised to 0, while i is less than 26, i is incremented by 1 each time
     {
@@ -102,10 +102,10 @@ int main()
             }
         }
     }
-        printf("\nyour encrypted message is:\n %s",m3);
+        printf("\nyour encrypted message is:\n %s",m3);//prints the encrypted message
         break;
         }
-        case 4:
+        case 4:     //decrytion using substitution cypher
         {
             /*intitiate the strings to store the message and key allowing for the program to encrypt the message*/
             char upcase[30]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
@@ -115,13 +115,13 @@ int main()
             char m4[1500];
                                       
             printf("\nEnter message to decrypt: ");
-            scanf(" %[^\n]",m4);
+            scanf(" %[^\n]",m4);//stores the message to be decrypted
             
             int n;
             int i;
             
             printf("\nEnter key/26 characters: ");
-            scanf("%s",key);
+            scanf("%s",key);//allows the user to chose a key for the rotation encryption
                                       
             for(n=0;n<strlen(m4);n++) //i is initialised to 0, while i is less than 26, i is incremented by 1 each time
             {
@@ -143,7 +143,7 @@ int main()
                     }
                 }
             }
-                printf("\nDecrypted message: %s",m4);//prints encrypted message for user
+                printf("\nDecrypted message: %s",m4);//prints encrypted message
                 return 0;
                 }
         default://default allows for if an incorrect selection is choose in the menu informing the user to restart and choose again
